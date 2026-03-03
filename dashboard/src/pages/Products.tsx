@@ -1,8 +1,6 @@
 import { useState } from "react";
 import {
-  Search,
   Plus,
-  Download,
   Edit,
   Trash2,
   Eye,
@@ -11,6 +9,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import styles from "./Products.module.css";
+import { Filters } from "@/components/global/products/Filters";
 
 interface Product {
   id: number;
@@ -123,30 +122,13 @@ export default function Products() {
 
       {/* Filters */}
       <div className={styles.card}>
-        <div className={styles.filters}>
-          <div className={styles.search}>
-            <Search size={16} color="var(--font-color-title)" />
-            <input
-              placeholder="Buscar por nombre o SKU..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </div>
-
-          <select
-            value={categoryFilter}
-            onChange={(e) => setCategoryFilter(e.target.value)}
-            className={styles.select}
-          >
-            {categories.map(cat => (
-              <option key={cat}>{cat}</option>
-            ))}
-          </select>
-
-          <button className={styles.outlineBtn}>
-            <Download size={16} /> Exportar
-          </button>
-        </div>
+        <Filters
+          categories={categories}
+          inputSearchTerm={searchTerm}
+          inputSetSearchTerm={(e) => setSearchTerm(e.target.value)}
+          selectCategoryFilter={categoryFilter}
+          selectSetCategoryFilter={(e) => setCategoryFilter(e.target.value)}
+        />
       </div>
 
       {/* Table */}
