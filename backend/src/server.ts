@@ -1,7 +1,7 @@
 import Fastify from "fastify"
 import type { FastifyRequest, FastifyReply } from "fastify"
 import jwt from "@fastify/jwt"
-import { env } from "./config/env.ts"
+import { env } from "@/config/env"
 
 const PORT = env?.PORT || 3000
 
@@ -15,8 +15,10 @@ const fastify = Fastify({
   logger: true
 })
 
-await fastify.register(jwt, {
-  secret: env?.JWT_SECRET as string
+fastify.register(async (fastify) => {
+  await fastify.register(jwt, {
+    secret: env?.JWT_SECRET as string
+  })
 })
 
 fastify.decorate("authenticate", async (request: FastifyRequest, reply: FastifyReply) => {
