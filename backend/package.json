@@ -14,6 +14,7 @@
   "license": "ISC",
   "packageManager": "pnpm@10.30.2",
   "dependencies": {
+    "@fastify/jwt": "^10.0.0",
     "@prisma/client": "6.19.2",
     "dotenv": "^17.3.1",
     "fastify": "^5.7.4",
