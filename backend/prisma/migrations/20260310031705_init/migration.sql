@@ -12,8 +12,8 @@ CREATE TABLE "User" (
     "name" TEXT NOT NULL,
     "role" "Role" NOT NULL DEFAULT 'USER',
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "update_at" TIMESTAMP(3),
-    "delete_time" TIMESTAMP(3),
+    "updated_at" TIMESTAMP(3),
+    "deleted_time" TIMESTAMP(3),
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -70,8 +70,8 @@ CREATE TABLE "InventoryMovement" (
     "quantity" INTEGER NOT NULL,
     "notes" TEXT,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "update_at" TIMESTAMP(3),
-    "delete_time" TIMESTAMP(3),
+    "updated_at" TIMESTAMP(3),
+    "deleted_time" TIMESTAMP(3),
 
     CONSTRAINT "InventoryMovement_pkey" PRIMARY KEY ("id")
 );
