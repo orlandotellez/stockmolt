@@ -18,8 +18,8 @@ model User {
   movements   InventoryMovement[] 
   
   created_at  DateTime            @default(now())
-  update_at   DateTime?           @updatedAt
-  delete_time DateTime?
+  updated_at   DateTime?           @updatedAt
+  deleted_time DateTime?
 }
 
 model Category {
@@ -90,8 +90,8 @@ model InventoryMovement {
   user        User         @relation(fields: [user_id], references: [id])
   
   created_at  DateTime     @default(now())
-  update_at   DateTime?    @updatedAt
-  delete_time DateTime?
+  updated_at   DateTime?    @updatedAt
+  deleted_time DateTime?
 }
 
 enum Role {
